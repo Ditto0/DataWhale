@@ -11,17 +11,13 @@ def getItem(html):
             datas.append((userid,content))
         except:
             pass
-    for i in datas:
-        pass
-        #print(i+"\n")
 
 if __name__ == '__main__':
     heards={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36"}
     url = "http://www.dxy.cn/bbs/thread/626626#626626"
-    #r = requests.get(url,headers=heards)
     r = requests.get(url, headers=heards)
     r.encoding="utf-8"
-    html = bs(r.text,"html")
+    html = bs(r.text,"lxml")
     getItem(html)
 
 
